@@ -1,0 +1,23 @@
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.actors {
+  max-width: 150px;
+  text-align: center;
+  padding: 10px;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.container {
+  padding: 20px;
+}

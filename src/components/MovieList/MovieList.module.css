@@ -1,4 +1,17 @@
 .li {
-  font-size: 15px;
-  color: black;
+  font-size: 18px;
+  color: white;
+  list-style: none;
+  text-align: center;
+}
+
+.li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.li a:hover {
+  color: #ffcc00;
+  transform: scale(1.05);
 }

@@ -25,3 +25,18 @@ export async function fetchMovieCast(movieId) {
   const { data } = await axios.get(`${BASE_URL}/movie/${movieId}/credits`, options);
   return data.cast;
 }
+
+export async function fetchMovieReviews(movieId) {
+  const { data } = await axios.get(`${BASE_URL}/movie/${movieId}/reviews`, options);
+  return data.results;
+}
+
+export async function fetchMoviePage(query) {
+  const { data } = await axios.get(`${BASE_URL}/search/movie`, {
+    params: { query, language: 'en-US' },
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  });
+  return data.results;
+}

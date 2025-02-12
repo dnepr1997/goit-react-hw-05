@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from '../../services/api';
+import s from './MoviesCast.module.css';
 
 const MoviesCast = () => {
   const { movieId } = useParams();
@@ -9,18 +10,27 @@ const MoviesCast = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await fetchMovieCast(movieId);
-      setCast(data);
+      try {
+        const data = await fetchMovieCast(movieId);
+        setCast(data);
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
     };
     getData();
   }, [movieId]);
   return (
-    <div>
-      <ul>
+    <div className={s.container}>
+      <ul className={s.list}>
         {cast.map(item => (
-          <li key={item.id}>
+          <li key={item.id} className={s.actors}>
+            <img
+              className={s.img}
+              src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
+              alt={item.name}
+            />
             <p>{item.original_name}</p>
-            <img src={`https://image.tmdb.org/t/p/w500${item.profile_path}`} alt={item.name} />
+            <p>Character: {item.character}</p>
           </li>
         ))}
       </ul>
